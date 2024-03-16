@@ -1,0 +1,13 @@
+% Generate a random signal with noise
+t = 0:0.01:2*pi;
+y = sin(t) + 0.1*randn(size(t));
+
+% Apply median filter to remove noise
+filtered_y = medfilt1(y, 5); % 5 represents the size of the filter window
+
+% Plot the original signal and the filtered signal
+plot(t, y, 'b', t, filtered_y, 'r');
+legend('Original Signal', 'Filtered Signal');
+xlabel('Time');
+ylabel('Amplitude');
+title('Noise Removal using Median Filter');
